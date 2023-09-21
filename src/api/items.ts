@@ -13,14 +13,14 @@ const postItem = async (item: Partial<Item>) => request(url, {
 })
 
 const deleteItem = async (itemId: string) => {
-    const deleteUrl = `${url}/${itemId}`;
+    const deleteUrl = `${url}${itemId}`;
   
     return request(deleteUrl, {
       method: 'DELETE',
     });
 }
 
-const editItem = async (item: Partial<Item>) => request(`${url}/${item.id}`, {
+const editItem = async (item: Partial<Item>) => request(`${url}${item.id}`, {
     method: 'PUT',
     body: item
   })

@@ -58,8 +58,20 @@ const Counter = styled.div<{ isActive: boolean }>`
   padding: 0.125rem 0.625rem;
 `
 
+const Image = styled.img`
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+`
+const CloseButton = styled.button`
+  background-color: transparent;
+  height: 20px;
+  cursor: pointer;
+`
 export default {
   Item,
   Input,
   Counter,
+  Image,
+  CloseButton
 }
