@@ -8,6 +8,7 @@ type CategoryComponentProps = {
   onUpdateCategoryValue: (categoryIndex: number,  value: string) => void,
   index: number,
   handleActiveCategory: () => void,
+  onSaveCategoryChange: (value: string) => void
 }
 
 const CategoryComponent = (props: CategoryComponentProps) => (
@@ -15,9 +16,9 @@ const CategoryComponent = (props: CategoryComponentProps) => (
     <Category.Input
       value={props.text}
       autoFocus
-      onChange={(e) => props.onUpdateCategoryValue(props.index, e.target.value)}
-    />
-
+      onChange={(e) => props.onUpdateCategoryValue(props.index, e.target.value) }
+      onBlur={() => props.onSaveCategoryChange(props.text)} />
+      
     <Category.Counter isActive={props.active}>
       {props.items.filter((item) => item.checked).length}/{props.items.length}
     </Category.Counter>

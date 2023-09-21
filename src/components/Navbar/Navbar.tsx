@@ -3,11 +3,13 @@ import Navbar from './Navbar.styled'
 import type { Category } from '../../types/types'
 import addButtonW from '../../assets/addButtonW.svg'
 
+
 type NavbarComponentProps = {
   categories: Category[],
   onCreateCategory: (category: Category) => void,
   onUpdateCategoryValue: (categoryIndex: number,  value: string) => void,
   handleActiveCategory: (id: string) => void
+  onSaveCategoryChange: (value: string) => void
 }
 
 
@@ -42,6 +44,7 @@ const NavbarComponent = (props: NavbarComponentProps) => (
             onUpdateCategoryValue={props.onUpdateCategoryValue}
             index={index}
             handleActiveCategory={() => props.handleActiveCategory(category.id)}
+            onSaveCategoryChange={props.onSaveCategoryChange}
           />
         ))
       }

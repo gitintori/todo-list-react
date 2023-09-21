@@ -9,7 +9,8 @@ type ItemComponentProps = {
   onCheck: () => void,
   text: string,
   onChange: React.ChangeEventHandler<HTMLInputElement>,
-  onDelete: () => void
+  onDelete: () => void,
+  onSaveItemChange: (value: string | boolean, key: 'checked' | 'text') => void
 }
 
 const ItemComponent = (props: ItemComponentProps): JSX.Element => {
@@ -21,7 +22,10 @@ const ItemComponent = (props: ItemComponentProps): JSX.Element => {
         type="checkbox"
         id={props.id}
         checked={props.checked}
-        onChange={props.onCheck}
+        onChange={(e) => {
+          props.onCheck()
+          props.onSaveItemChange(e.target.checked, 'checked')
+        }}
       />
 
       <Item.Label htmlFor={props.id} isActive={props.checked}>
@@ -29,7 +33,8 @@ const ItemComponent = (props: ItemComponentProps): JSX.Element => {
           <Item.Checkmark isActive={props.checked} src={checkmark}/>
         </Item.CheckmarkWrapper>
 
-        <Item.InputText type="text" autoFocus value={props.text} onChange={props.onChange} />
+        <Item.InputText type="text" autoFocus value={props.text} onChange={props.onChange} onBlur={(e) =>
+        props.onSaveItemChange(e.target.value, 'text')} />
 
         <Item.RemoveButton type="button" onClick={props.onDelete}>
           <img src={deletebutton} />

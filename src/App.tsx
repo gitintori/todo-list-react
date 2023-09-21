@@ -5,7 +5,8 @@ import Navbar from './components/Navbar/Navbar'
 import type { Category } from './types/types'
 import { Container, ItemContainer, ItemWrapper, TitleWrapper, AddItemButton } from './App.styled'
 import addButtonP from './assets/addButtonP.svg'
-import { getCategories, postCategory } from './api/categories'
+import { getCategories, postCategory, editCategory } from './api/categories'
+import { postItem, deleteItem, editItem } from './api/items'
 
 function App() {
   // hooks
@@ -29,19 +30,19 @@ function App() {
 
   }, [])
 
-  const onCreateCategory = (category: Category) => {
+  const onCreateCategory = async (category: Category) => {
     try {
-      postCategory(category)
+      const createdCategory = await postCategory(category)
       const newCategories = categories.map((mapCategory) => ({ 
         ...mapCategory,
         active: false,
       }))
-      newCategories.push(category)
+      newCategories.push({...createdCategory, items:[]})
       setCategories(newCategories)
     } catch(error){
       console.log(error)
     }
-  } 
+  }
 
   const onUpdateCategoryValue = (categoryIndex: number,  value: string) => {
     const newCategories = [...categories]
@@ -60,34 +61,6 @@ function App() {
     setCategories(newCategories)
   }
 
-  const onCreateItem = () => {
-    const newCategories = categories.map((category) => ({
-      ...category,
-      items: category.active ? [
-        ...category.items,
-        {
-          id: `item-${category.items.length + 1}`,
-          text: '',
-          checked: false
-        }
-      ] : category.items
-    }))
-
-    setCategories(newCategories)
-  }
-
-  const onUpdateItemValue = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-    const newCategories = categories.map((category) => ({
-      ...category,
-      items: category.items.map((categoryItem) => ({
-        ...categoryItem,
-        text: category.active && id === categoryItem.id ? e.target.value : categoryItem.text
-      }))
-    }))
-
-    setCategories(newCategories)
-  }
-
   const onCheckItem = (id: string) => {
     const newCategories = categories.map((category) => ({
       ...category,
@@ -100,17 +73,89 @@ function App() {
     setCategories(newCategories)
   }
 
-  const onDeleteItem = (id: string) => {
+  const onDeleteItem = async (id: string) => {
+    try {
+      await deleteItem(id);
+      const newCategories = categories.map((category) => ({
+        ...category,
+        items: category.active ? category.items.filter((categoryItem) => id !== categoryItem.id) : category.items
+      }));
+      setCategories(newCategories);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const activeCategory = categories.find((category) => category.active)
+// .....................................................................................................................
+  const onSaveCategoryChange = async (value: string) => {
+    try {
+        const updatedCategory = {
+          ...activeCategory,
+          text: value,
+        }
+        
+          await editCategory(updatedCategory)
+          
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+//................................................................................................................................ 
+  const onUpdateItemValue = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
     const newCategories = categories.map((category) => ({
       ...category,
-      items: category.active ? category.items.filter((categoryItem) => id !== categoryItem.id) : category.items
+      items: category.items.map((categoryItem) => ({
+        ...categoryItem,
+        text: category.active && id === categoryItem.id ? e.target.value : categoryItem.text
+      }))
     }))
-
+    
     setCategories(newCategories)
   }
 
-  const activeCategory = categories.find((category) => category.active)
+  const onSaveItemChange = async (value: string | boolean, key: 'checked' | 'text', id: string) => {
+    try {
+      const updatedItem = activeCategory?.items.find((item) => item.id === id)
+      if (updatedItem) {
+        if (key === 'checked' && typeof value === 'boolean') {
+          updatedItem.checked = value
+        } else if(typeof value === 'string') {
+          updatedItem.text = value
+        }
+        await editItem(updatedItem)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
+  const onCreateItem = async () => {
+    const newItem = {
+      text: '',
+      checked: false,
+      categoryId: activeCategory?.id,
+    }
+    try {
+      const createdItem = await postItem(newItem)
+      console.log(createdItem)
+      const newCategories = categories.map((category) => ({
+        ...category,
+        items: category.active ? [
+          ...category.items,
+          createdItem
+        ] : category.items,
+      
+      }))
+
+      setCategories(newCategories)
+    } catch (error) {
+      console.log(error)
+    }
+   
+  }
+  
   return (
     <Container>
       <GlobalStyle/>
@@ -120,6 +165,7 @@ function App() {
         onCreateCategory={onCreateCategory}
         onUpdateCategoryValue={onUpdateCategoryValue}
         handleActiveCategory={handleActiveCategory}
+        onSaveCategoryChange={onSaveCategoryChange}
       />
     <ItemContainer>
       <TitleWrapper>
@@ -152,6 +198,7 @@ function App() {
               onCheck={() => onCheckItem(item.id)}
               onDelete={() => onDeleteItem(item.id)}
               onChange={(e) => onUpdateItemValue(e, item.id)}
+              onSaveItemChange={(value, key) => onSaveItemChange(value, key, item.id)}
             />
           ))
         }

@@ -2,31 +2,315 @@
   "categories": [
     {
       "id": 1,
-      "text": "categoria 1",
-      "active": true
-    },
-    {
       "text": "",
       "active": true,
-      "id": 2
+      "items": [
+        {
+          "id": 1,
+          "text": "item 1 categoria 1",
+          "checked": true,
+          "categoryId": 1
+        },
+        {
+          "text": "item 2 categoria 1sdf",
+          "checked": false,
+          "categoryId": 1,
+          "id": 2
+        }
+      ]
     },
     {
-      "text": "",
+      "text": "Categoria 2",
+      "active": true,
+      "id": 2,
+      "items": [
+        {
+          "text": "",
+          "checked": false,
+          "categoryId": 2,
+          "id": 56
+        }
+      ]
+    },
+    {
+      "text": "Categoria 3",
       "active": true,
       "id": 3
     },
     {
+      "text": "asdasdfghfhg",
+      "active": true,
+      "id": 4,
+      "items": [
+        {
+          "text": "asdasd",
+          "checked": false,
+          "categoryId": 4,
+          "id": 57
+        }
+      ]
+    },
+    {
+      "text": "sdfsfd",
+      "active": true,
+      "id": 5,
+      "items": []
+    },
+    {
+      "text": "ssdf",
+      "active": true,
+      "id": 6,
+      "items": [
+        {
+          "text": "sdfsdasda",
+          "checked": false,
+          "categoryId": 6,
+          "id": 14
+        }
+      ]
+    },
+    {
       "text": "",
       "active": true,
-      "id": 4
+      "id": 7,
+      "items": []
+    },
+    {
+      "text": "",
+      "active": true,
+      "id": 8
     }
   ],
   "items": [
     {
       "id": 1,
       "text": "item 1 categoria 1",
-      "checked": false,
+      "checked": true,
       "categoryId": 1
+    },
+    {
+      "text": "item 2 categoria 1sdf",
+      "checked": false,
+      "categoryId": 1,
+      "id": 2
+    },
+    {
+      "text": "sdfsdasda",
+      "checked": false,
+      "categoryId": 6,
+      "id": 14
+    },
+    {
+      "text": "s",
+      "checked": false,
+      "id": 15
+    },
+    {
+      "text": "d",
+      "checked": false,
+      "id": 16
+    },
+    {
+      "text": "s",
+      "checked": false,
+      "id": 17
+    },
+    {
+      "text": "d",
+      "checked": false,
+      "id": 18
+    },
+    {
+      "text": "s",
+      "checked": false,
+      "id": 19
+    },
+    {
+      "text": "d",
+      "checked": false,
+      "id": 20
+    },
+    {
+      "text": "s",
+      "checked": false,
+      "id": 21
+    },
+    {
+      "text": "d",
+      "checked": false,
+      "id": 22
+    },
+    {
+      "text": "s",
+      "checked": false,
+      "id": 23
+    },
+    {
+      "text": "d",
+      "checked": false,
+      "id": 24
+    },
+    {
+      "text": "g",
+      "checked": false,
+      "id": 25
+    },
+    {
+      "text": "item 2 categoriag 1",
+      "checked": false,
+      "id": 26
+    },
+    {
+      "text": "item 2 categoria 1g",
+      "checked": false,
+      "id": 27
+    },
+    {
+      "text": "item 2 categoria 1g",
+      "checked": false,
+      "id": 28
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 29
+    },
+    {
+      "text": "item 2 categoria 1S",
+      "checked": false,
+      "id": 30
+    },
+    {
+      "text": "item 2 categoria 1D",
+      "checked": false,
+      "id": 31
+    },
+    {
+      "text": "item 2 categoria 1F",
+      "checked": false,
+      "id": 32
+    },
+    {
+      "text": "item 2 categoria 1S",
+      "checked": false,
+      "id": 33
+    },
+    {
+      "text": "item 2 categoria 1D",
+      "checked": false,
+      "id": 34
+    },
+    {
+      "text": "item 2 categoria 1F",
+      "checked": false,
+      "id": 35
+    },
+    {
+      "text": "item 2 categorias 1",
+      "checked": false,
+      "id": 36
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 37
+    },
+    {
+      "text": "item 2 categoria 1f",
+      "checked": false,
+      "id": 38
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 39
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 40
+    },
+    {
+      "text": "item 2 categoria 1f",
+      "checked": false,
+      "id": 41
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 42
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 43
+    },
+    {
+      "text": "item 2 categoria 1f",
+      "checked": false,
+      "id": 44
+    },
+    {
+      "text": "item 2 categoria d1",
+      "checked": false,
+      "id": 45
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 46
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 47
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 48
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 49
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 50
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 51
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 52
+    },
+    {
+      "text": "item 2 categoria 1s",
+      "checked": false,
+      "id": 53
+    },
+    {
+      "text": "item 2 categoria 1d",
+      "checked": false,
+      "id": 54
+    },
+    {
+      "text": "",
+      "checked": false,
+      "categoryId": 2,
+      "id": 56
+    },
+    {
+      "text": "asdasd",
+      "checked": false,
+      "categoryId": 4,
+      "id": 57
     }
   ]
 }

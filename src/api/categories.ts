@@ -15,8 +15,23 @@ const postCategory = async (category: Category) => request(url, {
     }
 })
 
+const deleteCategory = async (categoryId: string) => {
+    const deleteUrl = `${url}/${categoryId}`;
+  
+    return request(deleteUrl, {
+      method: 'DELETE',
+    });
+}
+
+const editCategory = async (category: Partial<Category>) => request(`${url}/${category.id}`, {
+    method: 'PUT',
+    body: category
+  })
+
 export { 
     getCategories,
-    postCategory
+    postCategory,
+    deleteCategory,
+    editCategory
  }
  
