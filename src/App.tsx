@@ -90,7 +90,8 @@ function App() {
     try {
 
       await deleteCategory(id);
-      // fazer o filter do category e o setCategories
+      const newCategories = (categories.filter((categoryItem) => id !== categoryItem.id))
+      setCategories(newCategories);
 
     } catch (error) {
       console.log(error);
@@ -112,7 +113,6 @@ function App() {
         console.log(error)
       }
     }
-
 
   const onUpdateItemValue = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
     const newCategories = categories.map((category) => ({

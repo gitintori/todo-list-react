@@ -17,7 +17,7 @@ const postCategory = async (category: Category) => request(url, {
 
 const editCategory = async (category: Partial<Category>) => request(`${url}${category.id}`, {
     method: 'PUT',
-    body: category
+    body: {text: category.text}
   })
 
 const deleteCategory = async (id: string) => request(`${url}${id}`, {
