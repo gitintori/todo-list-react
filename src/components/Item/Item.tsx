@@ -1,4 +1,3 @@
-// Tem html dentro do js, é react (jsx)
 import checkmark from '../../assets/checkmark.png'
 import deletebutton from '../../assets/deletebutton.svg'
 import Item from './Item.styled'

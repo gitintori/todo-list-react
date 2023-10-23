@@ -9,14 +9,11 @@ import { getCategories, postCategory, editCategory, deleteCategory } from './api
 import { postItem, deleteItem, editItem } from './api/items'
 
 function App() {
-  // hooks
+
   const [categories, setCategories] = React.useState<Category[]>([])
 
   React.useEffect(() => {
-    // fetch(`${url}categories/`)
-    //  .then((resposta) => resposta.json())
-    //  .then((dados) => console.log(dados))
-    //  .catch((error) => console.log(error))
+    
     const loadCategories = async () => {
       try {
         const dados = await getCategories()
@@ -51,8 +48,6 @@ function App() {
   }
 
   const handleActiveCategory = (id: string) => {
-    // 1 - categories - active da categoria
-    // categories modificado
     const newCategories = categories.map((category) => ({
       ...category,
       active: id === category.id
@@ -90,7 +85,7 @@ function App() {
     try {
 
       await deleteCategory(id);
-      const newCategories = (categories.filter((categoryItem) => id !== categoryItem.id))
+      const newCategories = categories.filter((categoryItem) => id !== categoryItem.id)
       setCategories(newCategories);
 
     } catch (error) {
