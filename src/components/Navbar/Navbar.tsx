@@ -47,6 +47,7 @@ const NavbarComponent = (props: NavbarComponentProps) => (
             onDeleteCategory={() => props.onDeleteCategory(category.id)}
           />
         ))
+
       }
     </ul>
   </Navbar.Nav>
