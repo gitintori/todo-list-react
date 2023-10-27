@@ -1,7 +1,7 @@
 import request from "./index";
 import { Category } from "../types/types";
 
-const url = 'http://localhost:3000/categories/' 
+const url = `${import.meta.env.VITE_API_URL}/categories/`
 
 const getCategories = async () => request(`${url}?_embed=items`, {
     method: 'GET'
