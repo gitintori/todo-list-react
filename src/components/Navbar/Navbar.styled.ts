@@ -23,6 +23,7 @@ const Title = styled.h2`
 `
 const AddCategoryButton = styled.button`
     background-color: transparent;
+    cursor: pointer
 `;
 
 export default { 
