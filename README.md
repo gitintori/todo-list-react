@@ -1,27 +1,67 @@
-# React + TypeScript + Vite
+# CS Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição do Projeto
 
-Currently, two official plugins are available:
+Este é um projeto de estudo que se trata de uma lista de afazeres, onde pode-se adicionar categorias para criar várias listas diferentes, que foi feito com intuito de treinar React, funções assíncronas, persistência de dados e manipular APIs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias usadas:
 
-## Expanding the ESLint configuration
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" width="40" height="40" /> 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+Esse projeto foi criado com React + Vite (https://pt.vitejs.dev/guide/).
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Começando com React + Vite
+
+Você precisa ter [NPM](https://nodejs.org/en/) instalado para rodar essa aplicação.
+
+#### Clone esse projeto
+
+```
+  git clone + url do código
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+#### Entre na pasta
+
+```
+  cd sua-pasta
+```
+
+#### Instale dependências
+
+```
+ npm create vite@latest my-react-app -- --template react
+```
+
+#### Para rodar!
+
+```
+  npm run dev
+```
+
+## Para testar a persistência de dados:
+
+Você precisará rodar o json-server em um terminal separado:
+
+#### Instale o json-server
+```
+npm install -g json-server
+
+```
+
+#### Crie um arquivo json (como db.json) e adicione categorias e itens iniciais
+
+Exemplo:
+```
+{
+  "categories": [],
+  "items": []
+}
+```
+
+#### Execute o json-server com o nome da sua pasta
+ Exemplo:
+
+```
+ json-server --watch db.json
+```
